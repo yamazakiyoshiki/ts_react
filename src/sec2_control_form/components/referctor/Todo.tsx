@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import List from "./List";
 import Form from "./Form";
+import { TodoListType } from "../../../models/TodoType";
 
 const Todo = () => {
   const todoList = [
@@ -19,10 +20,22 @@ const Todo = () => {
   ];
 
   const [todos, setTodos] = useState(todoList);
+
+  const deleteTodo = (id: number) => {
+    const newTodos = todos.filter((todo) => {
+      return todo.id !== id;
+    });
+    setTodos(newTodos);
+  };
+
+  const createTodo = (todo: TodoListType) => {
+    setTodos([...todos, todo]);
+  };
+
   return (
     <>
-      <List todos={todos} setTodos={setTodos} />
-      <Form todos={todos} setTodos={setTodos} />
+      <List todos={todos} deleteTodo={deleteTodo} />
+      <Form createTodo={createTodo} />
     </>
   );
 };

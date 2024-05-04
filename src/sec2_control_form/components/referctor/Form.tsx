@@ -1,39 +1,34 @@
 import React, { useState } from "react";
+import { TodoListType } from "../../../models/TodoType";
 
 type FormProps = {
-  todos: {
-    id: number;
-    content: string;
-  }[];
-  setTodos: React.Dispatch<
-    React.SetStateAction<
-      {
-        id: number;
-        content: string;
-      }[]
-    >
-  >;
+  createTodo: (todo: TodoListType) => void;
 };
 
-const Form = ({ todos, setTodos }: FormProps) => {
-  const [desc, setDesc] = useState("");
+const Form = ({ createTodo }: FormProps) => {
+  const [enteredTodo, setEnteredTodo] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDesc(e.target.value);
+    setEnteredTodo(e.target.value);
   };
 
-  const createTodo = () => {
-    const newTodos = [...todos];
-    newTodos.push({ id: Math.random(), content: desc });
-    setTodos(newTodos);
-    setDesc("");
+  const addTodo = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const newTodo = {
+      id: Math.floor(Math.random() * 1e5),
+      content: enteredTodo,
+    };
+    createTodo(newTodo);
+    setEnteredTodo("");
   };
 
   return (
     <>
       <h2>Form.tsx</h2>
-      <input type="text" value={desc} onChange={handleChange} />
-      <button onClick={createTodo}>追加</button>
+      <form onSubmit={addTodo}>
+        <input type="text" value={enteredTodo} onChange={handleChange} />
+        <button>追加</button>
+      </form>
     </>
   );
 };

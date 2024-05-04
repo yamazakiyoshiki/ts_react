@@ -3,21 +3,12 @@ type ListProps = {
     id: number;
     content: string;
   }[];
-  setTodos: React.Dispatch<
-    React.SetStateAction<
-      {
-        id: number;
-        content: string;
-      }[]
-    >
-  >;
+  deleteTodo: (id: number) => void;
 };
 
-const List = ({ todos, setTodos }: ListProps) => {
-  const deleteTodo = (id: number) => {
-    const deleteTodos = [...todos];
-    const deletedTodo = deleteTodos.filter((todo) => todo.id !== id);
-    setTodos(deletedTodo);
+const List = ({ todos, deleteTodo }: ListProps) => {
+  const complete = (id: number) => {
+    deleteTodo(id);
   };
   return (
     <>
@@ -25,8 +16,8 @@ const List = ({ todos, setTodos }: ListProps) => {
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
-            <button onClick={() => deleteTodo(todo.id)}>完了</button>
-            {todo.content}
+            <button onClick={() => complete(todo.id)}>完了</button>
+            <span>{todo.content}</span>
           </li>
         ))}
       </ul>
