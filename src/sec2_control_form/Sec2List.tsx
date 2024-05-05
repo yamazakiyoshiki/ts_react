@@ -18,7 +18,7 @@ const Sec2List = () => {
       {/* <Example4 /> */}
       {/* <Example5 /> */}
       {/* <Example6 /> */}
-      <Practice2 />
+      {/* <Practice2 /> */}
     </div>
   );
 };

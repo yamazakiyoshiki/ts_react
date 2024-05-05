@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import List from "./List";
 import Form from "./Form";
-import { TodoListType } from "../../../models/TodoType";
+import { TodoListType } from "../../models/TodoType";
+import { Heading, VStack } from "@chakra-ui/react";
 
 const Todo = () => {
   const todoList = [
@@ -33,11 +34,13 @@ const Todo = () => {
   };
 
   return (
-    <>
-      <h2>Reminder</h2>
+    <VStack p="10" spacing="10">
+      <Heading color="blue.200" fontSize="5xl">
+        Reminder
+      </Heading>
       <List todos={todos} deleteTodo={deleteTodo} />
       <Form createTodo={createTodo} />
-    </>
+    </VStack>
   );
 };
 
