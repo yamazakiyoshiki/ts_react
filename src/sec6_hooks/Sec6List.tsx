@@ -6,6 +6,7 @@ import Example4 from "./components/Example4";
 import Example5 from "./components/Example5";
 import Practice1 from "./components/Practice1";
 import Practice2 from "./components/Practice2";
+import Practice3 from "./components/Practice3";
 
 const Sec6List = () => {
   return (
@@ -16,7 +17,8 @@ const Sec6List = () => {
       {/* <Example3 /> */}
       {/* <Example4 /> */}
       {/* <Example5 /> */}
-      <Practice2 />
+      {/* <Practice2 /> */}
+      <Practice3 />
     </>
   );
 };
