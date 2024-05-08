@@ -40,15 +40,7 @@ const BooksContext = createContext<BookListType>([
 ]);
 const BooksUpdateContext = createContext<Dispatch<ActionType>>(() => {});
 
-const initialBooksState: BookListType = [
-  {
-    id: 1,
-    title: "星の空",
-    author: "ken yamamoto",
-    pubYear: 2005,
-    editing: false,
-  },
-];
+const initialBooksState: BookListType = [];
 
 const reducer = (books: BookListType, action: ActionType) => {
   switch (action.type) {

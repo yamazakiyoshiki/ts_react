@@ -32,7 +32,7 @@ const DeleteBookForm = ({ book }: DeleteBookProps) => {
       <Button
         variant="contained"
         color="error"
-        style={{ margin: 30 }}
+        sx={{ m: 3 }}
         onClick={deleteBook}
       >
         書籍を削除
