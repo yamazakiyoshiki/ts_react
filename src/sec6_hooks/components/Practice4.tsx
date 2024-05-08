@@ -5,10 +5,13 @@ import AddBookForm from "../referctor/AddBookForm";
 
 const Practice4 = () => {
   return (
-    <BookProvider>
-      <BookList />
-      <AddBookForm />
-    </BookProvider>
+    <>
+      <h1 style={{ textAlign: "center" }}>書籍管理アプリ</h1>
+      <BookProvider>
+        <BookList />
+        <AddBookForm />
+      </BookProvider>
+    </>
   );
 };
 

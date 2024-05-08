@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useBookDispatch } from "../context/BookContext";
+import { Input, Button } from "@mui/material";
 
 type EditBookFormProps = {
   type: string;
@@ -50,11 +51,35 @@ const EditBookForm = ({ type, book, initialValue }: EditBookFormProps) => {
     <>
       {editToggle && (
         <>
-          <input type={type} value={value} onChange={handleChange} />
-          <button onClick={handleSubmit}>編集完了</button>
+          <Input
+            style={{
+              margin: 10,
+            }}
+            type={type}
+            value={value}
+            onChange={handleChange}
+          />
+          <Button
+            variant="contained"
+            color="success"
+            style={{ margin: 10 }}
+            onClick={handleSubmit}
+          >
+            編集完了
+          </Button>
         </>
       )}
-      {editToggle ? "" : <button onClick={editToggleHandler}>編集</button>}
+      {editToggle ? (
+        ""
+      ) : (
+        <Button
+          variant="contained"
+          style={{ margin: 10 }}
+          onClick={editToggleHandler}
+        >
+          編集
+        </Button>
+      )}
     </>
   );
 };

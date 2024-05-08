@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useBookDispatch } from "../context/BookContext";
+import { Input, Button } from "@mui/material";
 
 const AddBookForm = () => {
   const [titleValue, setTitleValue] = useState("");
@@ -32,25 +33,41 @@ const AddBookForm = () => {
 
   return (
     <>
-      <input
+      <Input
+        style={{
+          margin: 20,
+        }}
         type="text"
         placeholder="タイトル"
         onChange={addTitleHandler}
         value={titleValue}
       />
-      <input
+      <Input
+        style={{
+          margin: 20,
+        }}
         type="text"
         placeholder="著者"
         onChange={addAuthorHandler}
         value={authorValue}
       />
-      <input
+      <Input
+        style={{
+          margin: 20,
+        }}
         type="number"
         placeholder="出版年"
         onChange={addPubYearHandler}
         value={pubValue!}
       />
-      <button onClick={createBook}>書籍を登録</button>
+      <Button
+        variant="contained"
+        color="success"
+        style={{ margin: 50 }}
+        onClick={createBook}
+      >
+        書籍を登録
+      </Button>
     </>
   );
 };
