@@ -6,6 +6,7 @@ import Sec4List from "./sec4_control_dom/Sec4List";
 import Sec5List from "./sec5_functional_programming/Sec5List";
 import Sec6List from "./sec6_hooks/Sec6List";
 import Sec7List from "./sec7_Effect/Sec7List";
+import Sec8List from "./sec8_ts_Redux/Sec8List";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
       {/* <Sec4List /> */}
       {/* <Sec5List /> */}
       {/* <Sec6List /> */}
-      <Sec7List />
+      {/* <Sec7List /> */}
+      <Sec8List />
     </div>
   );
 }
