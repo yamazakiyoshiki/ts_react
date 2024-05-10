@@ -7,6 +7,7 @@ import Example4 from "./components/Example4";
 import Example5 from "./components/Example5";
 import Example6 from "./components/Example6";
 import Practice2 from "./components/Practice2";
+import Practice3 from "./components/Practice3";
 
 const Sec7List = () => {
   return (
@@ -18,7 +19,8 @@ const Sec7List = () => {
       {/* <Example4 /> */}
       {/* <Example5 /> */}
       {/* <Example6 /> */}
-      <Practice2 />
+      {/* <Practice2 /> */}
+      <Practice3 />
     </>
   );
 };
