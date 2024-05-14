@@ -7,7 +7,6 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.16",
-    "immer": "^10.0.4",
     "@reduxjs/toolkit": "^2.2.4",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -18,7 +17,9 @@
     "@types/react-dom": "^18.3.0",
     "@types/react-redux": "^7.1.33",
     "@types/styled-components": "^5.1.34",
+    "axios": "^1.6.8",
     "framer-motion": "^11.1.7",
+    "immer": "^10.0.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.0",
@@ -30,6 +31,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:api\"",
+    "dev:api": "npx json-server -w ./src/sec10_restapi/db/db.json -p 3003 -h 127.0.0.1",
+    "dev:client": "react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -52,5 +56,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "json-server": "^1.0.0-beta.0"
   }
 }

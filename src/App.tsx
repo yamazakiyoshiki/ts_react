@@ -1,4 +1,5 @@
 import "./App.css";
+import Sec10List from "./sec10_restapi/Sec10List";
 import Sec1List from "./sec1_state/Sec1List";
 import Sec2List from "./sec2_control_form/Sec2List";
 import Sec3List from "./sec3_style/Sec3List";
@@ -20,7 +21,8 @@ function App() {
       {/* <Sec6List /> */}
       {/* <Sec7List /> */}
       {/* <Sec8List /> */}
-      <Sec9List />
+      {/* <Sec9List /> */}
+      <Sec10List />
     </div>
   );
 }
