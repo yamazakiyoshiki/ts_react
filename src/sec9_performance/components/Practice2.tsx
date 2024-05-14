@@ -14,7 +14,7 @@ const Practice2 = () => {
 
   const maxNum = useMemo(() => {
     console.log("useMemo called");
-    return numArry.reduce((acc, curr) => (acc > curr ? acc : curr), numArry[0]);
+    return Math.max(...numArry);
   }, [numArry]);
   return (
     <>

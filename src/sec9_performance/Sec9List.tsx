@@ -11,8 +11,8 @@ const Sec9List = () => {
       {/* <Example1 /> */}
       {/* <Example2 /> */}
       {/* <Practice1 /> */}
-      <Practice2 />
-      {/* <Practice3/> */}
+      {/* <Practice2 /> */}
+      <Practice3 />
     </>
   );
 };
