@@ -28,11 +28,12 @@
     "redux": "^5.0.1",
     "styled-components": "^6.1.8",
     "typescript": "^4.9.5",
+    "uuid": "^9.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "dev": "concurrently \"npm run dev:client\" \"npm run dev:api\"",
-    "dev:api": "npx json-server -w ./src/sec10_restapi/db/db.json -p 3003 -h 127.0.0.1",
+    "dev:api": "npx json-server -w ./src/my_project/db/db.json -p 3003 -h 127.0.0.1",
     "dev:client": "react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
