@@ -10,6 +10,7 @@ type TodoItemProps = {
 const TodoItem = ({ todo }: TodoItemProps) => {
   const [newContent, setNewContent] = useState("");
   const [toggleEdit, setToggleEdit] = useState(false);
+  const [completed, setCompleted] = useState(false);
   const dispatch = useTodoDispatch();
 
   const toggleEditMode = () => setToggleEdit((prev) => !prev);
@@ -54,25 +55,33 @@ const TodoItem = ({ todo }: TodoItemProps) => {
   };
 
   const completeTodo = () => {
-    dispatch({ type: "COMPLETE_TODO", payload: todo.id });
+    setCompleted((prev) => !prev);
+    dispatch({
+      type: "COMPLETE_TODO",
+      payload: todo.id,
+    });
   };
   return (
     <div>
-      <h2>{todo.content}</h2>
-      {toggleEdit ? (
-        <div>
-          <form onSubmit={editTodo}>
-            <input type="text" value={newContent} onChange={editContent} />
-            <button type="submit">編集完了</button>
-          </form>
-        </div>
-      ) : (
-        <div>
-          <button onClick={toggleEditMode}>編集</button>
-        </div>
+      {!completed && (
+        <>
+          <h2>{todo.content}</h2>
+          {toggleEdit ? (
+            <div>
+              <form onSubmit={editTodo}>
+                <input type="text" value={newContent} onChange={editContent} />
+                <button type="submit">編集完了</button>
+              </form>
+            </div>
+          ) : (
+            <div>
+              <button onClick={toggleEditMode}>編集</button>
+            </div>
+          )}
+          <button onClick={completeTodo}>完了</button>
+          <button onClick={() => removeTodo(todo)}>削除</button>
+        </>
       )}
-      <button onClick={completeTodo}>完了</button>
-      <button onClick={() => removeTodo(todo)}>削除</button>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTodoDispatch } from "../context/TodoContext";
 import { postTodo } from "../api/todoApi";
+import { Todo } from "../types/todoType";
 
 const AddTodo = () => {
   const [addContent, setAddContent] = useState("");
@@ -9,22 +10,21 @@ const AddTodo = () => {
   const newTodoContent = (e: React.ChangeEvent<HTMLInputElement>) =>
     setAddContent(e.target.value);
 
-  const addTodo = (e: React.FormEvent<HTMLFormElement>) => {
+  const addTodo = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (addContent.trim() === "") {
       alert("タスク内容を入力してください");
       return;
     } else {
-      const newTodo = {
+      const newTodo: Todo = {
         id: Math.floor(Math.random() * 1e5),
         content: addContent,
         completed: false,
         editing: false,
       };
-      postTodo(newTodo).then((newTodo) => {
-        dispatch({ type: "ADD_TODO", payload: newTodo });
-        setAddContent("");
-      });
+      const addTodo = await postTodo(newTodo);
+      dispatch({ type: "ADD_TODO", payload: addTodo });
+      setAddContent("");
     }
   };
   return (
