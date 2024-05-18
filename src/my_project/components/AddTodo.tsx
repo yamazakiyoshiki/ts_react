@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useTodoDispatch } from "../context/TodoContext";
 import { postTodo } from "../api/todoApi";
 import { Todo } from "../types/todoType";
+import { Box, Button, TextField, Typography } from "@mui/material";
 
 const AddTodo = () => {
   const [addContent, setAddContent] = useState("");
@@ -27,14 +28,46 @@ const AddTodo = () => {
       setAddContent("");
     }
   };
+
   return (
-    <>
-      <h1>TODOを追加する</h1>
-      <form onSubmit={addTodo}>
-        <input type="text" value={addContent} onChange={newTodoContent} />
-        <button type="submit">タスクを追加</button>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        // minHeight: "100vh",
+        margin: "50px",
+        padding: "40px",
+        backgroundColor: "#9edcae",
+      }}
+    >
+      <Typography variant="h3" align="center" gutterBottom>
+        タスクを追加
+      </Typography>
+      <form
+        onSubmit={addTodo}
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          padding: "20px",
+          gap: "20px",
+        }}
+      >
+        <TextField
+          type="text"
+          value={addContent}
+          onChange={newTodoContent}
+          label="タスク内容"
+          variant="outlined"
+          sx={{ marginBottom: 2 }}
+        />
+        <Button type="submit" variant="contained">
+          タスクを追加
+        </Button>
       </form>
-    </>
+    </Box>
   );
 };
 

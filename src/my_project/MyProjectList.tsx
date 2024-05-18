@@ -5,8 +5,8 @@ import Project2 from "./projectLists/Project2";
 const My_ProjectList = () => {
   return (
     <>
-      {/* <Project1 /> */}
-      <Project2 />
+      <Project1 />
+      {/* <Project2 /> */}
     </>
   );
 };

@@ -9,7 +9,7 @@ import Sec7List from "./sec7_Effect/Sec7List";
 import Sec8List from "./sec8_ts_Redux/Sec8List";
 import Sec9List from "./sec9_performance/Sec9List";
 import Sec10List from "./sec10_restapi/Sec10List";
-import My_ProjectList from "./my_project/My_ProjectList";
+import MyProjectList from "./my_project/MyProjectList";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
       {/* <Sec8List /> */}
       {/* <Sec9List /> */}
       {/* <Sec10List /> */}
-      <My_ProjectList />
+      <MyProjectList />
     </div>
   );
 }
