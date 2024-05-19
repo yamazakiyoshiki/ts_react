@@ -3,6 +3,7 @@ import { useTodoDispatch } from "../context/TodoContext";
 import { postTodo } from "../api/todoApi";
 import { Todo } from "../types/todoType";
 import { Box, Button, TextField, Typography } from "@mui/material";
+import { MdAdd } from "react-icons/md";
 
 const AddTodo = () => {
   const [addContent, setAddContent] = useState("");
@@ -63,7 +64,7 @@ const AddTodo = () => {
           variant="outlined"
           sx={{ marginBottom: 2 }}
         />
-        <Button type="submit" variant="contained">
+        <Button type="submit" variant="contained" startIcon={<MdAdd />}>
           タスクを追加
         </Button>
       </form>

@@ -3,6 +3,12 @@ import { Todo } from "../types/todoType";
 import { useTodoDispatch } from "../context/TodoContext";
 import { deleteTodo, putTodo } from "../api/todoApi";
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
+import {
+  MdCheck,
+  MdCreate,
+  MdDeleteForever,
+  MdOutlineSecurityUpdateGood,
+} from "react-icons/md";
 
 type TodoItemProps = {
   todo: Todo;
@@ -81,6 +87,7 @@ const TodoItem = ({ todo }: TodoItemProps) => {
             type="submit"
             variant="contained"
             color="primary"
+            startIcon={<MdCheck />}
             sx={{
               marginBottom: 2,
             }}
@@ -104,6 +111,7 @@ const TodoItem = ({ todo }: TodoItemProps) => {
               justifyContent: "center",
               marginBottom: 1,
             }}
+            startIcon={<MdCreate />}
             onClick={toggleEditMode}
           >
             編集
@@ -114,13 +122,14 @@ const TodoItem = ({ todo }: TodoItemProps) => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          gap: 4,
+          gap: 2,
         }}
       >
         <Button
           variant="contained"
           color="success"
           onClick={completeTodo}
+          startIcon={<MdOutlineSecurityUpdateGood />}
           sx={{ marginTop: 1 }}
         >
           完了
@@ -129,6 +138,7 @@ const TodoItem = ({ todo }: TodoItemProps) => {
           variant="contained"
           color="error"
           onClick={() => removeTodo(todo)}
+          startIcon={<MdDeleteForever />}
           sx={{ marginTop: 1 }}
         >
           削除
